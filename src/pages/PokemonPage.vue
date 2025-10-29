@@ -31,8 +31,8 @@ watch(() => route.params.name, load);
   <div style="margin-top:40px">
     <router-link to="/" class="btn outline">← Back</router-link>
 
-    <div v-if="loading">Ładowanie…</div>
-    <div v-else-if="error" style="color:#c00">{{ error }}</div>
+    <div v-if="loading" class="loading">Ładowanie…</div>
+    <div v-else-if="error" class="error">{{ error }}</div>
     <div v-else-if="data" class="card">
       <img v-if="data.image" :src="data.image" :alt="data.name" width="160" height="160" />
       <h1 style="text-transform: capitalize">{{ data.name }}</h1>
@@ -42,5 +42,21 @@ watch(() => route.params.name, load);
 </template>
 
 <style>
-.card{background:#fff;border:1px solid #eee;border-radius:12px;padding:24px;margin-top:16px}
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:24px;
+  margin-top:16px}
+.loading{
+  font-size:24px;
+  font-weight:bold;
+  padding-top:16px;
+}
+.error{
+  color:#c00;
+  font-size:18px;
+  font-weight:bold;
+  padding-top:16px;
+}
 </style>

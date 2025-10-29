@@ -40,7 +40,7 @@ async function openModal(name: string) {
         <div class="main-content">
     <SearchInput v-model="q" @debounced="v => q = v" />
 
-    <ul v-if="results.length">
+    <ul v-if="results.length" class="list-container">
       <li v-for="p in results" :key="p.name">
         <button class="row" @click="openModal(p.name)">
           <span style="text-transform: capitalize">{{ p.name }}</span>
@@ -100,4 +100,13 @@ async function openModal(name: string) {
 .row:hover{
     background:#f7f7f7
     }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list-container {
+  width: 50%;
+  margin: 0 auto;
+}
 </style>
