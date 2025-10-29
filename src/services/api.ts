@@ -1,4 +1,5 @@
 const API = (import.meta as any).env?.VITE_API_BASE ?? '/api';
+const KEY = import.meta.env.VITE_PROXY_API_KEY;
 
 export type PokemonBasic = { name: string; url: string };
 export type PokemonDetail = {
@@ -9,7 +10,9 @@ export type Species = {
 };
 
 export async function getAllPokemonNames(): Promise<PokemonBasic[]> {
-    const res = await fetch(`${API}/pokemon?limit=10000&offset=0`);
+    const res = await fetch(`${API}/pokemon?limit=100000&offset=0`, {
+        headers: { "x-api-key": KEY }
+    });
     if (!res.ok) {
         throw new Error('Failed to load Pokemon list');
     }
