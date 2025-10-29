@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_API_BASE ?? '/api'
+const API = import.meta.env.dev.VITE_API_BASE ?? '/api'
 
 export type PokemonBasic = { name: string; url: string };
 export type PokemonDetail = {
